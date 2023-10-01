@@ -1,0 +1,35 @@
+.services {
+  background-image: url("../../../images/asset\ 33.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+.services h5 {
+  color: #10bad4;
+  font-weight: 500;
+  text-align: center;
+}
+
+.services h3 {
+  text-align: center;
+  color: #404655;
+  font-weight: 600;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.services h3::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  width: 6rem;
+  height: 3px;
+  background: rgba(16, 186, 212, 0.5);
+  border-radius: 20px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}

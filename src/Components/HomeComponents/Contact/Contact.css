@@ -1,0 +1,55 @@
+.contact-container {
+  background-image: url("../../../images/asset\ 35.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: wheat;
+}
+
+.contact-form {
+  background-color: #5d53d0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-group label {
+  color: wheat;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.contact-group input,
+.contact-group textarea {
+  width: 100%;
+  border: 2px solid #fafafc;
+  background: #a7a7ec;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.contact-group input:focus,
+.contact-group textarea:focus {
+  border: 2px solid #054a8a;
+  outline: 0;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.contact-group textarea {
+  resize: none;
+  height: 245px;
+}
+
+@media screen and (max-width: 767px) {
+  .contact-group:last-child {
+    margin-bottom: 20px;
+  }
+}

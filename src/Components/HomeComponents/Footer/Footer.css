@@ -1,0 +1,74 @@
+.footer-container {
+  background-image: url("../../../images/asset\ 33.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer {
+  background: #e1e4ec;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgb(0 0 0 / 20%);
+}
+
+.icons .facebook {
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icons .linkedIn {
+  background-color: #6c757d;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icons .instagram {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icons .google {
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.icons .tweeter {
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.social-icon {
+  color: #404655;
+}
+
+.copyright {
+  text-align: center;
+  background: aliceblue;
+}
+
+.copyright a:hover {
+  color: tomato;
+  transition: 2s;
+}
+
+.footer-link a {
+  color: #404655;
+  font-weight: 500;
+}
+
+.footer-link a:hover {
+  color: #007bff;
+  transition: 1s;
+}
