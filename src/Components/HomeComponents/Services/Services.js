@@ -11,7 +11,8 @@ const Services = () => {
     const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
-        axios.get('https://moto-repair.herokuapp.com/all-services')
+        // add the hosted url
+        axios.get('https://all-services')
             .then(res => {
                 setServices(res.data);
                 setLoading(false); // Set loading to false when data is fetched
@@ -36,7 +37,7 @@ const Services = () => {
                         services.length > 0 ?
                             services.map(service => <ServiceDetail key={service._id} service={service} />)
                             :
-                            <p>Please add the services from admin panel...</p> // Display a message if no services are available
+                            <p>Please add the services from admin panel...</p>
                     )}
                 </Row>
             </Container>

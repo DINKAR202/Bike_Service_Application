@@ -18,8 +18,8 @@ const Benefits = () => {
                     </Col>
                     <Col className="offset-md-1" md={5}>
                         <Fade right>
-                            <h1>Here are some of Your Benefits!</h1>
-                            <p className="text-muted"><small>Our repair technicians have a wealth of experience repairing motor cycles  and diagnosing wealth of great thing experience repairing errors. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed pariatur quas dolore in natus commodi?</small></p>
+                            <h1>Embrace the Wealth of Your Benefits!</h1>
+                            <p className="text-muted"><small>Our motorcycle repair technicians have extensive experience in diagnosing and fixing problems. Our experienced team guarantees superior service, ensuring flawless performance of your motorcycle. Trust our expertise for exceptional results and the best care for your motorcycle.</small></p>
                             <motion.button whileHover={{scale:1.1, textShadow:'0px 0px 8px rgb(255 255 255)', boxShadow:'0px 0px 8px #17a2b8', transition:{duration:0.4, yoyo:'Infinity'}}} className='main-button'>Go There</motion.button>
                       </Fade>
                     </Col>
