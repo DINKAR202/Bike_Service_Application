@@ -12,7 +12,7 @@ const Services = () => {
 
     useEffect(() => {
         // add the hosted url
-        axios.get('https://all-services')
+        axios.get('demo//all-services')
             .then(res => {
                 setServices(res.data);
                 setLoading(false); // Set loading to false when data is fetched

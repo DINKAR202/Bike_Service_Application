@@ -20,7 +20,7 @@ const About = () => {
                         <h6 className="text-info">About Us</h6>
                         <h3>Why Choose Us For Repair ?</h3>
                         <span className="animate-border border-black"></span>
-                        <p className="text-muted mt-2"> <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur blanditiis voluptatem iusto. Repellat, fugiat mollitia. Architecto dignissimos labore aperiam odit rem, et odio possimus maxime. Accusantium reiciendis magnam repellendus voluptates  </small> </p>
+                        <p className="text-muted mt-2"> <small>Choose us for repairs because we offer unmatched expertise, timely service, and competitive pricing. Our skilled technicians use cutting-edge tools and have a proven track record of delivering top-quality repairs. We prioritize customer satisfaction, ensuring your vehicle is in safe hands and ready for the road.</small> </p>
                         <motion.button whileHover={{scale:1.1, textShadow:'0px 0px 8px rgb(255 255 255)', boxShadow:'0px 0px 8px #17a2b8', transition:{duration:0.4, yoyo:'Infinity'}}} className='main-button'>Learn More</motion.button>
                         </Fade>
                     </Col>

@@ -27,7 +27,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get(`https://moto-repair.herokuapp.com/isAdmin?email=${loggedInUser?.email}`)
+    axios.get(`app/isAdmin?email=${loggedInUser?.email}`)
       .then(res => {
         setIsAdmin(res.data);
         setAdminLoading(false);

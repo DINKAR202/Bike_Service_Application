@@ -13,6 +13,9 @@ export const handleGoogleSignIn = () => {
         .auth()
         .signInWithPopup(googleProvider)
         .then(res => handleResponse(res))
+        .catch(error => {
+            throw error;
+        });
 }
 
 export const createUserWithEmailAndPassword = (name, email, password) => {
@@ -23,6 +26,9 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
             updateUserName(name);
             return handleResponse(res);
         })
+        .catch(error => {
+            throw error;
+        });
 }
 
 const updateUserName = name => {
@@ -37,6 +43,9 @@ export const signInWithEmailAndPassword = (email, password) => {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(res => handleResponse(res))
+        .catch(error => {
+            throw error;
+        });
 }
 
 const handleResponse = (res) => {
@@ -57,6 +66,9 @@ export const setJWTToken = () => {
         .then(idToken => {
             localStorage.setItem('token', idToken)
         })
+        .catch(error => {
+            throw error;
+        });
 }
 
 export const getDecodedUser = () => {
@@ -88,5 +100,7 @@ export const handleSignOut = () => {
             }
             return signedOutUser;
         })
-        .catch(error => console.log(error.message))
+        .catch(error => {
+            throw error;
+        });
 }

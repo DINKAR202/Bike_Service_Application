@@ -41,11 +41,11 @@ const Footer = () => {
                                 <h3 style={{color:'#404655'}}>Social Links</h3>
                                 <span className="animate-border border-black mb-3"></span>
                                     <div className="footer-link">
-                                        <a href='https://www.facebook.com/dev.farhanNahid/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon icon={faCheckCircle} /> <span>Facebook</span></a>
-                                        <a href='https://www.linkedin.com/in/farhan-nahid/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon icon={faCheckCircle} /> <span> LinkedIn</span></a>
-                                        <a href='https://github.com/farhan-nahid' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span> GitHub</span></a>
-                                        <a href='https://www.instagram.com/dev_farhan/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span>Instagram</span></a>
-                                        <a href='https://twitter.com/dev_farhannahid' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span>Twitter</span></a>
+                                        <a href='https://www.facebook.com/cartrabbit/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon icon={faCheckCircle} /> <span>Facebook</span></a>
+                                        <a href='https://www.linkedin.com/company/cartrabbit/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon icon={faCheckCircle} /> <span> LinkedIn</span></a>
+                                        <a href='/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span> GitHub</span></a>
+                                        <a href='/' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span>Instagram</span></a>
+                                        <a href='https://twitter.com/cartrabbit' target="-blank" className='d-block p-0 mb-4 item-link nav-link'><FontAwesomeIcon  icon={faCheckCircle} /> <span>Twitter</span></a>
                                     </div>
                              </div>   
                         </Col>
