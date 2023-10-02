@@ -34,3 +34,10 @@
 - [x] Git
 - [x] GitHub
 - [x] Dotenv
+
+### Setps of project Run:
+1. Download the and clone
+2. install npm :- npm audit fix --force
+3. Include the these two file images folder and logingConfig.js
+   (Download from "https://drive.google.com/drive/folders/1-9x6wAioqRFNRf-TpgVRuUlfVB9goXUw?usp=sharing")  
+where to use ""
