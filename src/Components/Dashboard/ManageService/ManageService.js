@@ -13,7 +13,7 @@ const ManageService = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        axios.get('https://moto-repair.herokuapp.com/all-services')
+        axios.get('/all-services')
             .then(res => {
                 setServices(res.data);
             })
@@ -28,7 +28,7 @@ const ManageService = () => {
                 matchedID = true;
             }
         }
-        if (email === "admin@test.gmail" && matchedID) {
+        if (email === "demo@admin.com" && matchedID) {
             return true;
         }
         return false;
@@ -57,7 +57,7 @@ const ManageService = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedServices = services.filter(item => item._id !== id);
-                axios.delete(`https://moto-repair.herokuapp.com/service-delete/${id}`)
+                axios.delete(`/service-delete/${id}`)
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {

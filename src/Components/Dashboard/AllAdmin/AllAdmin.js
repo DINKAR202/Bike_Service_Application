@@ -14,7 +14,7 @@ const AllAdmin = () => {
 
 
     useEffect(() => {
-        axios.get('https://moto-repair.herokuapp.com/all-admin')
+        axios.get('/all-admin')
             .then(res => {
                 setAdmins(res.data);
             })
@@ -22,7 +22,7 @@ const AllAdmin = () => {
     }, [])
 
     const handleDeleteReview = (id) =>{
-        if (email === "admin@test.gmail") {
+        if (email === "demo@admin.com") {
             return swal("Permission restriction!", "As a test-admin, you don't have this permission.", "info");
         }
 
@@ -36,7 +36,7 @@ const AllAdmin = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedAdmins = admins.filter(item => item._id !== id);
-                axios.delete(`https://moto-repair.herokuapp.com/remove-admin/${id}`)
+                axios.delete(`/remove-admin/${id}`)
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {

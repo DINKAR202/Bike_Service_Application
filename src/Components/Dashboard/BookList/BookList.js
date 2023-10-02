@@ -30,7 +30,7 @@ const BookList = () => {
 
 
     useEffect(() => {
-        axios.get('https://moto-repair.herokuapp.com/orderedByEmail?email='+loggedInUser.email)
+        axios.get('/orderedByEmail?email='+loggedInUser.email)
             .then(res => {
                 setOrders(res.data);
             })
@@ -52,7 +52,7 @@ const BookList = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedServices = orders.filter(item => item._id !== id);
-                axios.delete(`https://moto-repair.herokuapp.com/cancel-order/${id}`)
+                axios.delete(`/cancel-order/${id}`)
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {
@@ -107,7 +107,7 @@ const BookList = () => {
                                 }
                         </Table> : <TableSpinner />
                     }
-                 </div>>
+                 </div>
           </Container>
     );
 };

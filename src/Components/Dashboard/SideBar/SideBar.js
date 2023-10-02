@@ -25,7 +25,7 @@ const SideBar = ({ show }) => {
             <FontAwesomeIcon icon={faUserCircle} /> <span>Profile</span>
           </Link>
         </li>
-        {isAdmin ? (
+        {!isAdmin ? (
           <>
             <li>
               <Link to="/dashboard/book" className={panel === "book" ? "link-active" : ""} >

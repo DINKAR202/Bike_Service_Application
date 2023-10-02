@@ -36,8 +36,16 @@
 - [x] Dotenv
 
 ### Setps of project Run:
-1. Download the and clone
-2. install npm :- npm audit fix --force
-3. Include the these two file images folder and logingConfig.js
-   (Download from "https://drive.google.com/drive/folders/1-9x6wAioqRFNRf-TpgVRuUlfVB9goXUw?usp=sharing")  
-where to use ""
+1. Download or clone the project.
+
+2. install npm :- npm i / npm audit fix --force
+
+3. Include the following two files in our project: Images Folder: Download the "images" folder from the provided Google Drive link (https://drive.google.com/drive/folders/1-9x6wAioqRFNRf-TpgVRuUlfVB9goXUw?usp=sharing) and place it in the "/src" directory of our project.
+
+LoginConfig.js: Download the "LoginConfig.js" file from the same Google Drive link and place it in the "/src/Components/LoginAuth" directory of our project.
+
+4. You can also create an email address and password to log in directly (Create a login with the ID 'admin@gmail.com' and the password '123456789'.).
+
+5. For the admin panel, you can log in using the login ID 'demo@admin.com' and the password '123456789'.
+
+This is some pic of project:-
