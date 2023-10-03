@@ -1,8 +1,10 @@
+/* Styles for the dashboard container */
 .dashboard-container {
   display: flex;
   width: 100%;
   align-items: stretch;
   perspective: 1500px;
+  /* Uncomment the line below to set a background image */
   /* background-image: url("../images/about-section-bg.png"); */
   background-image: url("../images/asset\ 32.png");
   background-size: cover;
@@ -10,6 +12,7 @@
   background-position: center;
 }
 
+/* Styles for the navbar within the dashboard container */
 .dashboard-container .navbar {
   padding: 15px 10px;
   background: #fff;
@@ -17,12 +20,14 @@
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Styles for the buttons within the navbar */
 .dashboard-container .navbar-btn {
   box-shadow: none;
   outline: none !important;
   border: none;
 }
 
+/* Styles for the content area */
 #content {
   width: 100%;
   padding: 20px;
