@@ -49,7 +49,7 @@
 
 <<< HOME PAGE >>>
 
-     ![1](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/32f2e059-a0d5-454d-b39f-c9baecad87c0)
+![1](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/32f2e059-a0d5-454d-b39f-c9baecad87c0)
      ![2](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/4f430c29-3fa9-431e-b010-4bc92937e965)
      ![3](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/ce2d0dfe-448a-47ac-95c3-1c0a12c742cf)
      ![4](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/60e792b7-0711-4167-8589-4299d2d35363)
@@ -61,27 +61,20 @@
           
 <<< SignUp/SignIn >>>
 
-      ![Signup](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/015df16d-523c-45f3-ba1c-c7499c3a4454)
+![Signup](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/015df16d-523c-45f3-ba1c-c7499c3a4454)
       ![Login](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/511d9cfb-c68b-4906-bc4d-3968f769a9fe)
 
 <<< User Panel >>>
 
-      ![User_profile](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/525a6616-11d7-47dd-89bb-8ad144b38a68)
+![User_profile](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/525a6616-11d7-47dd-89bb-8ad144b38a68)
       ![User_Booked](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/4ff68786-6b99-4ca4-bcfa-c58660689fae)
       ![User_Reviews](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/b97cbdad-cb66-41fe-bd84-47097e49fb47)
 
 <<< Admin Panel >>>
 
-      ![Admin_profile](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/65e45ffb-9961-466d-b95b-678d18a177db)
+![Admin_profile](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/65e45ffb-9961-466d-b95b-678d18a177db)
       ![Admin_add Service](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/c54f5174-3a36-4737-8903-46b2a4a170fd)
       ![Add_admin](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/50d1f50f-4380-4789-bf77-a6629e15e246)
       ![manage Admin](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/81b2e269-1a9c-42ea-a6a2-5aa8b1dd87e4)
       ![Manage_Service](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/1b7d6b80-61be-4feb-bc48-05c930f68531)
-      ![Order_list](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/71bfd187-d72c-447e-9e20-5b5cb007e275)
-
-
-
-![1](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/e2cb1607-e920-45dc-94ef-f0bf02a72805)
-
-
-      
+      ![Order_list](https://github.com/DINKAR202/Bike_Service_Application/assets/109248473/71bfd187-d72c-447e-9e20-5b5cb007e275) 
