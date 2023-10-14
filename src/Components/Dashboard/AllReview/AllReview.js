@@ -1,3 +1,4 @@
+// Import necessary dependencies and components
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
@@ -8,12 +9,17 @@ import swal from "sweetalert";
 import { UserContext } from "../../../App";
 import TableSpinner from "../TableSpinner/TableSpinner";
 
+// Create a functional component named AllReview
 const AllReview = () => {
+  // Access the loggedInUser's email from the UserContext
   const {
     loggedInUser: { email },
   } = useContext(UserContext);
+
+  // Initialize a state variable to store reviews data
   const [reviews, setReviews] = useState([]);
 
+  // Fetch review data from the server using Axios when the component mounts
   useEffect(() => {
     axios
       .get("http://localhost:9090/all-review")
@@ -23,6 +29,7 @@ const AllReview = () => {
       .catch((error) => toast.error(error.message));
   }, []);
 
+  // Handle the deletion of a review
   const handleDeleteReview = (id) => {
     if (email === "admin@test.gmail") {
       return swal(
@@ -42,6 +49,7 @@ const AllReview = () => {
       if (wantDelete) {
         const loading = toast.loading("Deleting...Please wait!");
         const removedReviews = reviews.filter((item) => item._id !== id);
+
         axios
           .delete(`http://localhost:9090/delete-review/${id}`)
           .then((res) => {
@@ -74,12 +82,13 @@ const AllReview = () => {
     });
   };
 
+  // Render the UI elements
   return (
     <Container>
       <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
         {reviews.length > 0 ? (
           <Table className="table-style" hover responsive>
-            <thead className="bg-light ">
+            <thead className="bg-light">
               <tr>
                 <th>Sl. No</th>
                 <th>Name</th>
