@@ -1,3 +1,4 @@
+// Import necessary dependencies and components
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
@@ -9,8 +10,12 @@ import { UserContext } from '../../../App';
 import TableSpinner from '../TableSpinner/TableSpinner';
 import './BookList.css';
 
+// Define the BookList component
 const BookList = () => {
+    // Access the logged-in user's information from the context
     const { loggedInUser } = useContext(UserContext);
+
+    // Define state to store the list of orders
     const [orders, setOrders] = useState([]);
 
     // Function to check if the user has permission based on the first order
@@ -28,6 +33,7 @@ const BookList = () => {
         return false;
     }
 
+    // Fetch the user's orders when the component mounts
     useEffect(() => {
         axios.get('http://localhost:9090/orderedByEmail?email=' + loggedInUser.email)
             .then(res => {
@@ -36,6 +42,7 @@ const BookList = () => {
             .catch(error => toast.error(error.message))
     }, [loggedInUser.email])
 
+    // Handle the deletion of an order
     const handleDeleteService = (id) => {
         if (restrictPermission(id)) {
             return swal("Permission restriction!", "As your first order, you don't have permission to Cancel it. But you can cancel your other orders.", "info");
@@ -68,49 +75,52 @@ const BookList = () => {
         });
     }
 
+    // Render the component's content
     return (
         <Container>
             <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
                 {
-                    orders.length > 0 ?
-                    <Table className='table-style' hover responsive>
-                        <thead className="bg-light ">
-                            <tr>
-                                <th>Sl. No</th>
-                                <th>Name</th>
-                                <th>Service</th>
-                                <th>Time</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        {
-                            orders.map((order, index) => {
-                                return (
-                                    <tbody key={order._id} style={{ fontWeight: "500" }}>
-                                        <tr>
-                                            <td>{index + 1}</td>
-                                            <td>{order.name}</td>
-                                            <td>{order.order && order.order.name}</td>
-                                            <td>{order.time}</td>
-                                            <td>
-                                                <span className={order.status && order.status.toLowerCase()}>{order.status}</span>
-                                            </td>
-                                            <td>
-                                                <Button variant="outline-danger" className="p-1 ml-3 mb-0" onClick={() => handleDeleteService(order._id)}>
-                                                    <FontAwesomeIcon icon={faTrash} className="mx-1" />
-                                                </Button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                );
-                            })
-                        }
-                    </Table> : <TableSpinner />
+                    orders.length > 0 ? (
+                        <Table className='table-style' hover responsive>
+                            <thead className="bg-light">
+                                <tr>
+                                    <th>Sl. No</th>
+                                    <th>Name</th>
+                                    <th>Service</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            {
+                                orders.map((order, index) => {
+                                    return (
+                                        <tbody key={order._id} style={{ fontWeight: "500" }}>
+                                            <tr>
+                                                <td>{index + 1}</td>
+                                                <td>{order.name}</td>
+                                                <td>{order.order && order.order.name}</td>
+                                                <td>{order.time}</td>
+                                                <td>
+                                                    <span className={order.status && order.status.toLowerCase()}>{order.status}</span>
+                                                </td>
+                                                <td>
+                                                    <Button variant="outline-danger" className="p-1 ml-3 mb-0" onClick={() => handleDeleteService(order._id)}>
+                                                        <FontAwesomeIcon icon={faTrash} className="mx-1" />
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    );
+                                })
+                            }
+                        </Table>
+                    ) : <TableSpinner />
                 }
             </div>
         </Container>
     );
 };
 
+// Export the BookList component
 export default BookList;

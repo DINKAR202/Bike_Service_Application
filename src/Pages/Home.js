@@ -11,22 +11,45 @@ import Partners from '../Components/HomeComponents/Partners/Partners';
 import Services from '../Components/HomeComponents/Services/Services';
 import Testimonials from '../Components/HomeComponents/Testimonials/Testimonials';
 
+// Define the Home component
 const Home = () => {
     return (
         <main>
+            {/* Render the Header component */}
             <Header />
+
+            {/* Render the About component */}
             <About />
+
+            {/* Render the OurTeam component */}
             <OurTeam />
+
+            {/* Render the Services component */}
             <Services />
+
+            {/* Render the OurWork component */}
             <OurWark />
+
+            {/* Render the Benefits component */}
             <Benefits />
+
+            {/* Render the Testimonials component */}
             <Testimonials />
+
+            {/* Render the Partners component */}
             <Partners />
+
+            {/* Render the Contact component */}
             <Contact />
+
+            {/* Render the Footer component */}
             <Footer />
+
+            {/* Render the Copyright component */}
             <Copyright/>
         </main>
     );
 };
 
+// Export the Home component
 export default Home;

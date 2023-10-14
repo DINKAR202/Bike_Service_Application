@@ -1,3 +1,4 @@
+// Import necessary dependencies and components
 import {
   faBiking,
   faClipboardList,
@@ -9,118 +10,160 @@ import {
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useContext } from "react";
 import { Image } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../../App";
 import logo from "../../../images/asset 10.png";
 import "./SideBar.css";
-// import SideBarSpinner from './SideBarSpinner';
+import SideBarSpinner from "./SideBarSpinner";
 
-const SideBar = ({ show }) => {
+// Define the SideBar component
+const SideBar = ({ show, adminLoading }) => {
+  // Access the user's role from the context
   const { isAdmin } = useContext(UserContext);
+
+  // Get the current panel parameter from the URL
   const { panel } = useParams();
 
   return (
     <nav id="sidebar" className={show ? "active" : ""}>
       <div className="sidebar-header">
         <Image className="d-inline-block image" src={logo} alt="..." />
-        <h4 className="d-inline-block">Bike Service</h4>
+        <h4 className="d-inline-block">Bike Service Center</h4>
       </div>
-      <ul className="list-unstyled sidebar-items">
-        <li>
-          <Link
-            to="/dashboard/profile"
-            className={panel === "profile" ? "link-active" : ""}
+      {adminLoading ? (
+        // Display a spinner when admin information is loading
+        <SideBarSpinner />
+      ) : (
+        <ul className="list-unstyled sidebar-items">
+          <motion.li
+            whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+            transition={{ type: "spring", stiffness: 1000 }}
           >
-            <FontAwesomeIcon icon={faUserCircle} /> <span>Profile</span>
-          </Link>
-        </li>
-        {!isAdmin ? (
-          <>
-            <li>
-              <Link
-                to="/dashboard/book"
-                className={panel === "book" ? "link-active" : ""}
+            <Link
+              to="/dashboard/profile"
+              className={panel === "profile" ? "link-active" : ""}
+            >
+              <FontAwesomeIcon icon={faUserCircle} /> <span>Profile</span>
+            </Link>
+          </motion.li>
+          {!isAdmin ? (
+            // Render menu items for non-admin users
+            <>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faShoppingBag} /> <span>Book</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/book-list"
-                className={panel === "book-list" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/book"
+                  className={panel === "book" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faShoppingBag} /> <span>Book</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faClipboardList} />{" "}
-                <span>Book List</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/reviews"
-                className={panel === "reviews" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/book-list"
+                  className={panel === "book-list" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faClipboardList} />{" "}
+                  <span>Book List</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faQuoteLeft} /> <span>Reviews</span>
-              </Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link
-                to="/dashboard/add-services"
-                className={panel === "add-services" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/reviews"
+                  className={panel === "reviews" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faQuoteLeft} /> <span>Reviews</span>
+                </Link>
+              </motion.li>
+            </>
+          ) : (
+            // Render menu items for admin users
+            <>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faBiking} /> <span>Add Services</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/add-admins"
-                className={panel === "add-admins" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/add-services"
+                  className={panel === "add-services" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faBiking} /> <span>Add Services</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/manage-services"
-                className={panel === "manage-services" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/add-admins"
+                  className={panel === "add-admins" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/all-orders"
-                className={panel === "all-orders" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/manage-services"
+                  className={panel === "manage-services" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faTasks} />{" "}
+                  <span>Manage Services</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faClipboardList} />{" "}
-                <span>Orders List</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/all-reviews"
-                className={panel === "all-reviews" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/all-orders"
+                  className={panel === "all-orders" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faClipboardList} />{" "}
+                  <span>Orders List</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faQuoteLeft} />{" "}
-                <span>Manage Reviews</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/dashboard/all-admins"
-                className={panel === "all-admins" ? "link-active" : ""}
+                <Link
+                  to="/dashboard/all-reviews"
+                  className={panel === "all-reviews" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faQuoteLeft} />{" "}
+                  <span>Manage Reviews</span>
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.3, originX: 0, color: "#000" }}
+                transition={{ type: "spring", stiffness: 1000 }}
               >
-                <FontAwesomeIcon icon={faUserCircle} />{" "}
-                <span>Manage Admins</span>
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
+                <Link
+                  to="/dashboard/all-admins"
+                  className={panel === "all-admins" ? "link-active" : ""}
+                >
+                  <FontAwesomeIcon icon={faUserCircle} />{" "}
+                  <span>Manage Admins</span>
+                </Link>
+              </motion.li>
+            </>
+          )}
+        </ul>
+      )}
       <ul className="list-unstyled back-button">
         <li>
           <Link to="/" className="back-home brn btn-info main-button">
@@ -133,6 +176,3 @@ const SideBar = ({ show }) => {
 };
 
 export default SideBar;
-
-
-
