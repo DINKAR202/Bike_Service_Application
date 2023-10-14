@@ -1,13 +1,18 @@
+// Import necessary dependencies
 import firebase from "firebase/app";
 import "firebase/auth";
 import jwt_decode from "jwt-decode";
 import firebaseConfig from "./LoginConfig";
 
+// Initialize the Firebase authentication framework
 export const initializeLoginFramework = () => {
+    // Initialize Firebase only if it's not already initialized
     !firebase.apps.length && firebase.initializeApp(firebaseConfig);
 }
 
+// Handle Google Sign-In
 export const handleGoogleSignIn = () => {
+    // Create a Google provider
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase
         .auth()
@@ -18,6 +23,7 @@ export const handleGoogleSignIn = () => {
         });
 }
 
+// Create a new user with email and password
 export const createUserWithEmailAndPassword = (name, email, password) => {
     return firebase
         .auth()
@@ -31,6 +37,7 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
         });
 }
 
+// Update the user's display name
 const updateUserName = name => {
     const user = firebase.auth().currentUser;
     user.updateProfile({
@@ -38,6 +45,7 @@ const updateUserName = name => {
     })
 }
 
+// Sign in with email and password
 export const signInWithEmailAndPassword = (email, password) => {
     return firebase
         .auth()
@@ -48,6 +56,7 @@ export const signInWithEmailAndPassword = (email, password) => {
         });
 }
 
+// Handle the response and construct a user object
 const handleResponse = (res) => {
     const { displayName, photoURL, email } = res.user;
     const signedInUser = {
@@ -59,6 +68,7 @@ const handleResponse = (res) => {
     return signedInUser;
 }
 
+// Set the JWT token in local storage
 export const setJWTToken = () => {
     return firebase
         .auth().currentUser
@@ -71,6 +81,7 @@ export const setJWTToken = () => {
         });
 }
 
+// Get the decoded user from the JWT token in local storage
 export const getDecodedUser = () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -86,6 +97,7 @@ export const getDecodedUser = () => {
     return decodedUser;
 }
 
+// Handle user sign-out
 export const handleSignOut = () => {
     return firebase
         .auth()

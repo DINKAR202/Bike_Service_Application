@@ -6,39 +6,45 @@ import toast from 'react-hot-toast';
 import swal from 'sweetalert';
 import { UserContext } from '../../../App';
 
+// Define the Review component
 const Review = () => {
-    const { loggedInUser: {  name, photo  } } = useContext(UserContext);
+    // Access the logged-in user's information from the context
+    const { loggedInUser: { name, photo } } = useContext(UserContext);
+
+    // Initialize react-hook-form to handle form submission
     const { register, handleSubmit, reset } = useForm();
 
+    // Handle form submission
     const onSubmit = (data, e) => {
         const loading = toast.loading('Uploading...Please wait!');
-         data.img = photo || "https://i.ibb.co/5GzXkwq/user.png"
-   
+        data.img = photo || "https://i.ibb.co/5GzXkwq/user.png";
+
+        // Send a POST request to add a review
         axios.post('http://localhost:9090/add-review', data)
-        .then(res => {
-            toast.dismiss(loading);
-            if (res.data) {
-                reset()
-                return swal("Successfully Submitted", "Your review has been successfully submitted.", "success");
-            }
-            swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
-        })
-        .catch(error => {
-            toast.dismiss(loading);
-            swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
-        });   
+            .then(res => {
+                toast.dismiss(loading);
+                if (res.data) {
+                    reset();
+                    return swal("Successfully Submitted", "Your review has been successfully submitted.", "success");
+                }
+                swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
+            })
+            .catch(error => {
+                toast.dismiss(loading);
+                swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
+            });
     }
 
-    
+    // Render the component's content
     return (
         <section>
             <Container>
-                <Form  onSubmit={handleSubmit(onSubmit)} className="w-100 form-main shadow">
-                    <div className="p-5 bg-white" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main shadow">
+                    <div className="p-5 bg-white" style={{ borderRadius: "15px", maxWidth: '85rem' }}>
                         <Form.Row className="justify-content-center px-4">
                             <Form.Group as={Col} md={9} className='admin-group'>
                                 <Form.Label>Your Name</Form.Label>
-                                <Form.Control type="text" value={name} {...register("name", { required: true })}  placeholder="Enter Your Name" />
+                                <Form.Control type="text" value={name} {...register("name", { required: true })} placeholder="Enter Your Name" />
                             </Form.Group>
 
                             <Form.Group as={Col} md={2} className='offset-md-1 admin-group'>
@@ -54,23 +60,23 @@ const Review = () => {
 
                             <Form.Group as={Col} md={12} className='admin-group'>
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control    type="text" {...register("address", { required: true })} placeholder="Enter Your Address" />
+                                <Form.Control type="text" {...register("address", { required: true })} placeholder="Enter Your Address" />
                             </Form.Group>
 
                             <Form.Group as={Col} md={12} className='admin-group'>
                                 <Form.Label>Your Review</Form.Label>
-                                <Form.Control style={{ height: "10rem" }} type="text"as="textarea"{...register("description", { required: true })} placeholder="Tell me Something about this site." />
+                                <Form.Control style={{ height: "10rem" }} type="text" as="textarea" {...register("description", { required: true })} placeholder="Tell me Something about this site." />
                             </Form.Group>
-
                         </Form.Row>
                         <div className="text-center mt-4">
                             <Button type="submit" variant='info' className='main-button'>Submit</Button>
                         </div>
                     </div>
                 </Form>
-             </Container>
+            </Container>
         </section>
     );
 };
 
+// Export the Review component
 export default Review;

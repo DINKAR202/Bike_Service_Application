@@ -1,3 +1,4 @@
+// Import necessary dependencies and components
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
@@ -7,18 +8,21 @@ import ServiceDetail from '../ServiceDetail/ServiceDetail';
 import './Services.css';
 
 const Services = () => {
+    // Define state variables to store services and loading state
     const [services, setServices] = useState([]);
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // add the hosted url
+        // Fetch services data from the server
         axios.get('http://localhost:9090/all-services')
             .then(res => {
+                // Set services and update loading state when data is fetched successfully
                 setServices(res.data);
-                setLoading(false); // Set loading to false when data is fetched
+                setLoading(false);
             })
             .catch(error => {
-                setLoading(false); // Set loading to false in case of error
+                // Set loading state to false and display an error toast in case of an error
+                setLoading(false);
                 toast.error(error.message);
             });
     }, []);
@@ -35,9 +39,11 @@ const Services = () => {
                         </div>
                     ) : (
                         services.length > 0 ?
+                            // Map through services and render ServiceDetail components
                             services.map(service => <ServiceDetail key={service._id} service={service} />)
                             :
-                            <p>Please add the services from admin panel...</p>
+                            // Display a message when there are no services
+                            <p>Please add the services from the admin panel...</p>
                     )}
                 </Row>
             </Container>
@@ -45,4 +51,5 @@ const Services = () => {
     );
 };
 
+// Export the Services component
 export default Services;

@@ -1,37 +1,43 @@
+// Import necessary dependencies and components
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './Testimonial.css';
 
+// Function to display star ratings based on the input value
 const showRating = (star) => {
     const stars = [];
-    const int = parseInt(star, 10)
+    const int = parseInt(star, 10);
+
+    // Loop through and generate star icons for the rating
     for (let i = 1; i <= int; i++) {
-      stars.push(<FontAwesomeIcon className='rating-icon' icon={faStar} />)
+        stars.push(<FontAwesomeIcon className='rating-icon' icon={faStar} />);
     }
+
     return (
-      <div>{ stars }</div>
-    )
-  }
+        <div>{stars}</div>
+    );
+}
 
 const Testimonial = ({ testimonial: { name, address, img, description, star } }) => {
     return (
-          <div className="testimonial-card">
-              <div className="testimonial-avatar-box">
-                  <img className="testimonial-avatar img-fluid" src={img} alt={name} />
-              </div>
-              <div className="testimonial-content">
-                  <div className="testimonial-description">
-                      <p className='des text-muted' >{description}</p>
-                  </div>
-                  <h5 className="mb-0 mt-0 pb-0 text-info">{name}</h5>
-                  <p className='mb-1 mt-1 pb-0' style={{color:'gray'}}>{address}</p>
-                    {
-                        showRating(star) 
-                    } 
-              </div>
-          </div>
+        <div className="testimonial-card">
+            <div className="testimonial-avatar-box">
+                <img className="testimonial-avatar img-fluid" src={img} alt={name} />
+            </div>
+            <div className="testimonial-content">
+                <div className="testimonial-description">
+                    <p className='des text-muted'>{description}</p>
+                </div>
+                <h5 className="mb-0 mt-0 pb-0 text-info">{name}</h5>
+                <p className='mb-1 mt-1 pb-0' style={{ color: 'gray' }}>{address}</p>
+                {
+                    showRating(star)
+                }
+            </div>
+        </div>
     );
 };
 
+// Export the Testimonial component
 export default Testimonial;

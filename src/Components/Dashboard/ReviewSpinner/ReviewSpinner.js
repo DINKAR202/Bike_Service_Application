@@ -1,6 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
+// Define the ReviewSpinner component
 const ReviewSpinner = (props) => {
     return (
         <ContentLoader
@@ -18,4 +19,5 @@ const ReviewSpinner = (props) => {
     );
 };
 
+// Export the ReviewSpinner component
 export default ReviewSpinner;
