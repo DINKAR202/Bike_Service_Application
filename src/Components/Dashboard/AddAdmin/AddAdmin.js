@@ -11,11 +11,12 @@ const AddAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        if (email === "admin@test.gmail") {
+        if (email === "demo@admin.com"){
             return swal("Permission restriction!", "As a test-admin, you don't have this permission.", "info");
         }
         const loading = toast.loading('Adding...Please wait!');
-        axios.post('https://moto-repair.herokuapp.com/add-admin', data)
+        // axios.post('https://moto-repair.herokuapp.com/add-admin', data)
+        axios.post('http://localhost:9090/add-admin', data)
             .then(res => {
                 reset()
                 toast.dismiss(loading);

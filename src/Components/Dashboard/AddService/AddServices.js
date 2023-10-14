@@ -24,7 +24,7 @@ const AddServices = () => {
 
         const loading = toast.loading('Adding...Please wait!');
 
-        const url='https://moto-repair.herokuapp.com/add-services'
+        const url='http://localhost:9090/add-services'
         fetch(url,{
             method: 'POST',
             headers:{
@@ -45,7 +45,7 @@ const AddServices = () => {
 
     const handleImageUpload = event =>{
         const imageData = new FormData();
-        imageData.set('key', 'dbe52342656cdfcd177dc7e9307e81c4');
+        imageData.set('key', '76ea5ef96db8950bc0df8a7f01d855fe');
         imageData.append('image', event.target.files[0])
         const loading = toast.loading('Uploading...Please wait!');
   

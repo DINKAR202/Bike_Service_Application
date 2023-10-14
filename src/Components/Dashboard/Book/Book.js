@@ -15,7 +15,7 @@ const Book = () => {
     const [show, setShow] = useState(true);
     const [services, setServices] = useState([]);
 
-    const stripePromise = loadStripe('pk_test_51Ie11ZIo3XVCKagbJJnefC4ruHwRuiiS8mPOiugOUPZ3F9isu6mCQJjhdMQ9SHugvc8Y6pjEGk2xYIMhOW2CpJQN00ArldL7I3');
+    const stripePromise = loadStripe('pk_test_51O04DQSA2KZxfmUNRJy1bZrw4aBXYK9Z4yS4XzqpDgdgLnzQpAnQ5KKsFH0PpIsLiDrP890cqYRUdlG8iYYXF2SH00jOUf8dEh');
     const options = services.map(service => ({ value: service.name, label: service.name, price: service.price }));
     const defaultOption = name ? { value: name, label: name, price: price } : options[0] || { value: "Engine Repair", label: "Engine Repair", price: 2000 };
     const [selectedOption, setSelectedOption] = useState(defaultOption);
@@ -23,7 +23,7 @@ const Book = () => {
 
     useEffect(() => {
         // Add your cloud URL here
-        axios.get('/all-services')
+        axios.get('http://localhost:9090/all-services')
             .then(res => setServices(res.data))
             .catch(error => toast.error(error.message))
     }, [])
@@ -44,8 +44,7 @@ const Book = () => {
                 ...styles,
                 backgroundColor: isDisabled ? null : isSelected ? "#17a2b8" : isFocused ? "#16c8e48c" : null,
                 color: isDisabled ? null : isSelected ? "white" : isFocused ? "black" : "black",
-                cursor: isDisabled ? 'not-allowed' : 'default',
-                ':active': { ...styles[':active'], backgroundColor: !isDisabled && (isSelected ? "#17a2b8" : "#16c8e48c") },
+                cursor: isDisabled ? 'not-allowed' : 'default',':active': { ...styles[':active'], backgroundColor: !isDisabled && (isSelected ? "#17a2b8" : "#16c8e48c") },
             };
         },
     };

@@ -7,9 +7,10 @@ import TableSpinner from "../TableSpinner/TableSpinner";
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
 
+  // Fetch orders from the server
   useEffect(() => {
     axios
-      .get(`/all-orders`)
+      .get(`http://localhost:9090/all-orders`)
       .then((res) => {
         setOrders(res.data);
       })
@@ -17,20 +18,26 @@ const OrderList = () => {
   }, []);
 
   const handleStatusChange = (id, status) => {
-    let modifiedOrders = [];
-    orders.forEach((order) => {
+    // Create a new array with modified orders
+    const modifiedOrders = orders.map((order) => {
       if (order._id === id) {
+        // Check if 'order' and 'order.order' are defined before accessing their properties
+        if (order.order && order.order.name) {
+          order.order.name = status;
+        }
         order.status = status;
       }
-      modifiedOrders.push(order);
+      return order;
     });
+    
+    // Update the state with the modified orders
     setOrders(modifiedOrders);
 
     const modifiedStatus = { id, status };
     const loading = toast.loading("Updating....Please wait!");
 
     axios
-      .patch("/update-order-status", modifiedStatus)
+      .patch("http://localhost:9090/update-order-status", modifiedStatus)
       .then((res) => {
         toast.dismiss(loading);
         if (res.data) {
@@ -39,6 +46,7 @@ const OrderList = () => {
       })
       .catch((error) => toast.error(error.message));
   };
+
   return (
     <Container>
       <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
@@ -61,7 +69,7 @@ const OrderList = () => {
                     <td>{index + 1}</td>
                     <td>{order.name}</td>
                     <td>{order.email}</td>
-                    <td>{order.order.name}</td>
+                    <td>{order.order && order.order.name}</td>
                     <td>{order.paymentMethod}</td>
                     <td>
                       <select
@@ -78,9 +86,7 @@ const OrderList = () => {
                         }
                       >
                         <option className="bg-white text-muted">Pending</option>
-                        <option className="bg-white text-muted">
-                          On going
-                        </option>
+                        <option className="bg-white text-muted">On going</option>
                         <option className="bg-white text-muted">Done</option>
                       </select>
                     </td>

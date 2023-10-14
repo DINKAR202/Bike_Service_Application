@@ -38,7 +38,7 @@ const Dashboard = ({ adminLoading }) => {
                 {/* Render different components based on the 'panel' parameter */}
                 {
                     panel === "profile" ? <Profile />
-                    : panel === 'book' ? <Book />
+                    : panel === "book" ? <Book />
                     : panel === "book-list" ? <BookList />
                     : panel === "reviews" ? <Review />
                     : panel === "add-services" && isAdmin ? <AddServices />

@@ -23,7 +23,7 @@ const ServiceDetail = ({ service }) => {
                                 <Card.Text as='p' className="text-muted">{description}</Card.Text>
                             </Card.Body>  
                             <Card.Footer className='d-flex justify-content-between align-items-center border-0'>
-                                <h5>৳ {price}</h5>
+                                <h5>INR {price}</h5>
                                 <Button  variant='info'  as={Link} to="/dashboard/book" onClick={() => setSelectedService(service)} className="main-button"><FontAwesomeIcon icon={faShoppingCart}  />  Book</Button>            
                             </Card.Footer>
                         </Bounce>

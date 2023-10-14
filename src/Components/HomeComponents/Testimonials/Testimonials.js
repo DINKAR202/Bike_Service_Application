@@ -14,7 +14,7 @@ const Testimonials = () => {
 
     useEffect(() => {
         // add the website hosted url
-        fetch('https:/all-review')
+        fetch('http://localhost:9090/all-review')
             .then(res => res.json())
             .then(data => setTestimonials(data))
             .catch(error => toast.error(error.message))

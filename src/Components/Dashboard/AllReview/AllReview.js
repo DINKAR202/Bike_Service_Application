@@ -16,7 +16,7 @@ const AllReview = () => {
 
   useEffect(() => {
     axios
-      .get("/all-review")
+      .get("http://localhost:9090/all-review")
       .then((res) => {
         setReviews(res.data);
       })
@@ -24,7 +24,7 @@ const AllReview = () => {
   }, []);
 
   const handleDeleteReview = (id) => {
-    if (email === "demo@admin.com") {
+    if (email === "admin@test.gmail") {
       return swal(
         "Permission restriction!",
         "As a test-admin, you don't have this permission.",
@@ -43,7 +43,7 @@ const AllReview = () => {
         const loading = toast.loading("Deleting...Please wait!");
         const removedReviews = reviews.filter((item) => item._id !== id);
         axios
-          .delete(`/delete-review/${id}`)
+          .delete(`http://localhost:9090/delete-review/${id}`)
           .then((res) => {
             toast.dismiss(loading);
             if (res.data) {

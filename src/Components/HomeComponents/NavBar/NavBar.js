@@ -31,7 +31,6 @@ const NavBar = () => {
                       <Nav.Link smooth as={HashLink} to="#home" className="mr-3"><strong>Home</strong></Nav.Link>
                       <Nav.Link smooth as={HashLink} to="#about" className="mr-3"><strong>About</strong></Nav.Link>
                       <Nav.Link smooth as={HashLink} to="#service" className="mr-3"><strong>Service</strong></Nav.Link>
-                      <Nav.Link smooth as={HashLink} to="#blog" className="mr-3"><strong>Blogs</strong></Nav.Link>
                       <Nav.Link smooth as={HashLink} to='#reviews' className="mr-3"><strong>Reviews</strong></Nav.Link>
                       <Nav.Link smooth as={HashLink} to="#contact" className="mr-3"><strong>Contact</strong></Nav.Link>
                       <Nav.Link as={Link} to="/dashboard/profile" className="mr-3"><strong>Dashboard</strong></Nav.Link>

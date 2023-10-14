@@ -14,7 +14,7 @@ const Review = () => {
         const loading = toast.loading('Uploading...Please wait!');
          data.img = photo || "https://i.ibb.co/5GzXkwq/user.png"
    
-        axios.post('/add-review', data)
+        axios.post('http://localhost:9090/add-review', data)
         .then(res => {
             toast.dismiss(loading);
             if (res.data) {

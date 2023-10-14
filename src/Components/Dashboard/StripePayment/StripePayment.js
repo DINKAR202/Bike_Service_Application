@@ -64,7 +64,7 @@ const StripePayment = ({ orders }) => {
                 time: new Date().toDateString('dd/mm/yyyy'),
             };
 
-            const response = await fetch('https://moto-repair.herokuapp.com/add-order', {
+            const response = await fetch('http://localhost:9090/add-order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(bookingInfo),

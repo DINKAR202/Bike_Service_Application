@@ -14,7 +14,8 @@ const AllAdmin = () => {
 
 
     useEffect(() => {
-        axios.get('/all-admin')
+        //Add here links
+        axios.get('http://localhost:9090/all-admin')
             .then(res => {
                 setAdmins(res.data);
             })
@@ -36,7 +37,9 @@ const AllAdmin = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedAdmins = admins.filter(item => item._id !== id);
-                axios.delete(`/remove-admin/${id}`)
+
+                axios.delete(`http://localhost:9090/remove-admin/${id}`)
+                 //Add here links
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {

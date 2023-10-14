@@ -9,35 +9,34 @@ import { UserContext } from '../../../App';
 import TableSpinner from '../TableSpinner/TableSpinner';
 import './BookList.css';
 
-
 const BookList = () => {
     const { loggedInUser } = useContext(UserContext);
     const [orders, setOrders] = useState([]);
 
-    
-    const restrictPermission = id => {
+    // Function to check if the user has permission based on the first order
+    const restrictPermission = (id) => {
         let matchedID = false;
         for (let i = 0; i < 1; i++) {
-            const { _id } = orders[i];
-            if (id === _id) {
+            const order = orders[i];
+            if (order && order._id === id) {
                 matchedID = true;
-            }if (loggedInUser  && matchedID) {
+            }
+            if (loggedInUser && matchedID) {
                 return true;
             }
         }
         return false;
     }
 
-
     useEffect(() => {
-        axios.get('/orderedByEmail?email='+loggedInUser.email)
+        axios.get('http://localhost:9090/orderedByEmail?email=' + loggedInUser.email)
             .then(res => {
                 setOrders(res.data);
             })
             .catch(error => toast.error(error.message))
     }, [loggedInUser.email])
 
-    const handleDeleteService = (id) =>{
+    const handleDeleteService = (id) => {
         if (restrictPermission(id)) {
             return swal("Permission restriction!", "As your first order, you don't have permission to Cancel it. But you can cancel your other orders.", "info");
         }
@@ -52,11 +51,11 @@ const BookList = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedServices = orders.filter(item => item._id !== id);
-                axios.delete(`/cancel-order/${id}`)
+                axios.delete(`http://localhost:9090/cancel-order/${id}`)
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {
-                            setOrders(removedServices)
+                            setOrders(removedServices);
                             return swal("Successfully Deleted!", "Your Order has been successfully deleted.", "success");
                         }
                         swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
@@ -65,50 +64,52 @@ const BookList = () => {
                         toast.dismiss(loading);
                         swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true })
                     })
-                 }
-            });   
+            }
+        });
     }
 
     return (
-          <Container>
-                <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
-                    {
-                        orders.length >0  ? 
-                        <Table className='table-style' hover responsive >
-                            <thead className="bg-light ">
-                                <tr>
-                                    <th>Sl. No</th>
-                                    <th>Name</th>
-                                    <th>Service</th>
-                                    <th>Time</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                                {
-                                    orders.map((order, index) => {
-                                        return (
-                                            <tbody key={order._id} style={{ fontWeight: "500" }}>
-                                                <tr>
-                                                    <td>{index+1}</td>
-                                                    <td>{order.name}</td>
-                                                    <td>{order.order.name}</td>
-                                                    <td>{order.time}</td>
-                                                    <td >
-                                                        <span className={order.status.toLowerCase()}>{order.status}</span>
-                                                    </td>
-                                                    <td>
-                                                        <Button variant="outline-danger" className="p-1 ml-3 mb-0"onClick={()=> handleDeleteService(order._id)}>
-                                                            <FontAwesomeIcon icon={faTrash} className="mx-1" />
-                                                        </Button>
-                                                    </td>
-                                                </tr>
-                                            </tbody> ) })
-                                }
-                        </Table> : <TableSpinner />
-                    }
-                 </div>
-          </Container>
+        <Container>
+            <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
+                {
+                    orders.length > 0 ?
+                    <Table className='table-style' hover responsive>
+                        <thead className="bg-light ">
+                            <tr>
+                                <th>Sl. No</th>
+                                <th>Name</th>
+                                <th>Service</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        {
+                            orders.map((order, index) => {
+                                return (
+                                    <tbody key={order._id} style={{ fontWeight: "500" }}>
+                                        <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{order.name}</td>
+                                            <td>{order.order && order.order.name}</td>
+                                            <td>{order.time}</td>
+                                            <td>
+                                                <span className={order.status && order.status.toLowerCase()}>{order.status}</span>
+                                            </td>
+                                            <td>
+                                                <Button variant="outline-danger" className="p-1 ml-3 mb-0" onClick={() => handleDeleteService(order._id)}>
+                                                    <FontAwesomeIcon icon={faTrash} className="mx-1" />
+                                                </Button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                );
+                            })
+                        }
+                    </Table> : <TableSpinner />
+                }
+            </div>
+        </Container>
     );
 };
 
