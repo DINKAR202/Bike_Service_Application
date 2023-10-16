@@ -12,7 +12,7 @@ const Banner = () => {
       transition={{ delay: 0.5, type: "spring", stiffness: 2500 }}
       id="home"
     >
-      <Container>
+      <Container className="border">
         <Row className="align-items-center justify-content-center banner">
           <Col md={4}>
             <h1>We're Crafting Solutions for Your Challenges.</h1>
