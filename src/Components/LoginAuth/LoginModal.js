@@ -85,9 +85,7 @@ const LoginModal = () => {
                 title: "Warning!",  // Display a warning dialog for admin users.
                 content: (
                     <p>
-                        You have entered the admin panel for testing.
-                        <br />
-                        <b>Please do not abuse this facility!</b>
+                        You have entered the admin panel.
                     </p>
                 ),
                 icon: "warning",
