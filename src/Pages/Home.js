@@ -7,7 +7,6 @@ import Footer from '../Components/HomeComponents/Footer/Footer';
 import Header from '../Components/HomeComponents/Header/Header';
 import OurTeam from '../Components/HomeComponents/OurTeam/OurTeam';
 import OurWark from '../Components/HomeComponents/OurWork/OurWark';
-import Partners from '../Components/HomeComponents/Partners/Partners';
 import Services from '../Components/HomeComponents/Services/Services';
 import Testimonials from '../Components/HomeComponents/Testimonials/Testimonials';
 
@@ -35,10 +34,7 @@ const Home = () => {
 
             {/* Render the Testimonials component */}
             <Testimonials />
-
-            {/* Render the Partners component */}
-            <Partners />
-
+            
             {/* Render the Contact component */}
             <Contact />
 
